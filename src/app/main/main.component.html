@@ -1,0 +1,46 @@
+<div class="container">
+    <mat-toolbar>
+        <span style="margin-left: 15px;">
+            Practice App
+        </span>
+        <mat-icon  class="cart" matBadge="{{carts.length}}" matBadgeColor="primary" style="margin-right: 20px;" routerLink="/cart">shopping_cart</mat-icon>
+    </mat-toolbar>
+    <div class="selector" style="display: flex; align-items: center;">
+        <mat-form-field appearance="fill" style="margin: 10px auto; text-align: center">
+                    <mat-label>Select Sort Method</mat-label>
+                    <mat-select>
+                        <mat-option value="price" (click)="sortProductsByPrice()">Price</mat-option>
+                        <mat-option value="rating" (click)="sortProductsByRate()">Rating</mat-option>
+                    </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="category" style="gap: 10px;display: flex; justify-content: center;">
+        <mat-chip-list *ngFor="let category of categories[0]">
+            <mat-chip (click)="getByCategory(category)">{{category}}</mat-chip>
+        </mat-chip-list>
+    </div>
+    <mat-card style="margin: 50px auto; width: 500px;">
+        <div class="products" *ngFor="let product of products[0]">
+            <mat-card class="product-card" style="margin: 25px auto; width: 300px; display: flex; flex-direction: column;
+            align-items: center; gap: 15px; text-align: center;">
+            <mat-icon style="display: flex; align-self: flex-end; cursor: pointer;" (click)="deleteProduct(product)">close</mat-icon>
+                <mat-card-header>
+                    <mat-card-title>
+                        <span>{{product.title}}</span>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <img mat-card-image alt="product-img" src="{{product.image}}" style="width: 100px; margin: 0 auto 10px;">
+                    <p>Category: {{product.category}}</p>
+                    <p>Description: {{product.description}}</p>
+                    <p>Price: {{product.price}}</p>
+                    <p>Raiting: {{product.rating.rate}}</p>
+                    <mat-card-actions>
+                        <button mat-raised-button color="primary" (click)="addToCart(product)">Buy</button>
+                    </mat-card-actions>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        
+    </mat-card>
+</div>

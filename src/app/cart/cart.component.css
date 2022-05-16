@@ -1,0 +1,10 @@
+.price {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.price-card {
+    width: 150px;
+    margin: 40px auto;
+}
