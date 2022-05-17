@@ -20,11 +20,6 @@ export class DataService {
   getProductById(id: string) {
     return this.http.get(`https://fakestoreapi.com/products/${id}`)
   }
-
-  // Get Limited Products
-  getLimitedProducts(limit: string) {
-    return this.http.get(`https://fakestoreapi.com/products?limit=${limit}`)
-  }
   
   // Get All Categories
   getAllCategories() {
@@ -36,13 +31,10 @@ export class DataService {
     return this.http.get(`https://fakestoreapi.com/products/category/${category}`)
   }
 
-  // Add New Product
-  addNewProduct(product: any) {
-    return this.http.post('https://fakestoreapi.com/products', product)
-  }
-
   // Delete Product
   deleteProduct(product: any) {
     return this.http.delete(`https://fakestoreapi.com/products/${product.id}`, {responseType: 'text'})
   }
+
+ 
 }

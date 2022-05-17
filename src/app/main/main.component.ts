@@ -73,6 +73,7 @@ export class MainComponent implements OnInit {
     .subscribe((res: any) => {
       const index = this.products[0].indexOf(product)
       this.products[0].splice(index, 1)
+      
     })
   }
 
@@ -86,4 +87,6 @@ export class MainComponent implements OnInit {
     }
   }
 
+  
+  
 }
